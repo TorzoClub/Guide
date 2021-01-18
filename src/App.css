@@ -1,0 +1,66 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  /* min-height: 100vh;
+  min-width: 100vw; */
+}
+
+html {
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw; */
+  /* overflow: hidden;
+  background-color: red; */
+  writing-mode: vertical-rl;
+}
+
+.App {
+  /* position: fixed; */
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* background-color: grey; */
+  height: 100vh;
+  min-width: 100vw;
+  /* text-align: center; */
+  /* overflow-y: hidden;
+  height: 100%; */
+  box-sizing: border-box;
+  padding: 50px 20px 100px;
+  color: #464653;
+  font-size: calc(10px + 2vmin);
+}
+
+p {
+  transition: margin 382ms;
+  line-height: 1.75em;
+  letter-spacing: 0.1em;
+}
+
+img {
+  text-align: center;
+  /* display: block; */
+  height: 500px;
+  /* margin: auto 0; */
+  background-color: grey;
+}
+
+.last {
+  text-align: right;
+  font-weight: bold;
+  color: rgba(48, 103, 133, .382);
+}
+
+
+figure {
+  margin: auto 0;
+  writing-mode: horizontal-tb;
+}
+
+figure > figcaption {
+  text-align: center;
+  color: #BBB;
+  writing-mode: horizontal-tb;
+  font-size: calc(10px + 1vmin);
+}
