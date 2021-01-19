@@ -8,7 +8,12 @@ const HorizontalSpan = ({
   style?: React.HTMLAttributes<HTMLSpanElement>['style']
 }>) => (
   <span
-    style={{ writingMode: 'horizontal-tb', lineHeight: '1em', ...style }}
+    style={{
+      writingMode: 'horizontal-tb',
+      lineHeight: '1em',
+      height: '1em',
+      ...style,
+    }}
     {...reset}
   >
     {children}
