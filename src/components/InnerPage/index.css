@@ -1,0 +1,43 @@
+p {
+  /* color: #464653DD; */
+  color: hsl(201 7% 35% / .9);
+  transition: margin 382ms;
+  line-height: 1.75em;
+  letter-spacing: 0.1em;
+}
+
+h1 .bg {
+  background-color: rgba(48, 103, 133, .9);
+  color: white;
+  padding: .5vmin;
+  border-radius: .5vmin;
+  text-shadow: 1px 0px 0px hsl(201 27% 35% / .9);
+  margin-bottom: .5vmin;
+}
+
+.last {
+  text-align: right;
+  font-weight: bold;
+  color: rgba(48, 103, 133, .382);
+  margin-right: calc((10px + 2vmin) * 4);
+}
+
+img {
+  text-align: center;
+  /* display: block; */
+  height: 61.8vh;
+  /* margin: auto 0; */
+  background-color: grey;
+}
+
+figure {
+  margin: auto 0;
+  writing-mode: horizontal-tb;
+}
+
+figure > figcaption {
+  text-align: center;
+  color: #BBB;
+  writing-mode: horizontal-tb;
+  font-size: calc(10px + 1vmin);
+}

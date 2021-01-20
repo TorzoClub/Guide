@@ -1,79 +1,21 @@
 html, body {
   margin: 0;
   padding: 0;
-  /* min-height: 100vh;
-  min-width: 100vw; */
-  /* background-color: rgb(245, 247, 239); */
 }
 
 html {
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw; */
-  /* overflow: hidden;
-  background-color: red; */
   writing-mode: vertical-rl;
 }
 
 .App {
-  /* position: fixed; */
-  /* writing-mode: vertical-rl; */
   overflow-x: auto;
   overflow-y: hidden;
-  /* background-color: grey; */
+
   height: 100vh;
   min-width: 100vw;
-  /* text-align: center; */
-  /* overflow-y: hidden;
-  height: 100%; */
+
   box-sizing: border-box;
   padding: calc((10px + 2vmax) * 1.5) calc((10px + 2vmax) * 1.5);
   color: rgba(48, 103, 133, 1);
   font-size: calc(10px + 2vmin);
-}
-
-p {
-  /* color: #464653DD; */
-  color: hsl(201 7% 35% / 0.9);
-  transition: margin 382ms;
-  line-height: 1.75em;
-  letter-spacing: 0.1em;
-}
-
-h1 .bg {
-  background-color: rgba(48, 103, 133, .9);
-  color: white;
-  padding: .5vmin;
-  border-radius: .5vmin;
-  text-shadow: 1px 0px 0px hsl(201 27% 35% / 0.9);
-  margin-bottom: .5vmin;
-}
-
-.last {
-  text-align: right;
-  font-weight: bold;
-  color: rgba(48, 103, 133, .382);
-  margin-right: calc((10px + 2vmin) * 4);
-}
-
-img {
-  text-align: center;
-  /* display: block; */
-  height: 61.8vh;
-  /* margin: auto 0; */
-  background-color: grey;
-}
-
-figure {
-  margin: auto 0;
-  writing-mode: horizontal-tb;
-}
-
-figure > figcaption {
-  text-align: center;
-  color: #BBB;
-  writing-mode: horizontal-tb;
-  font-size: calc(10px + 1vmin);
 }

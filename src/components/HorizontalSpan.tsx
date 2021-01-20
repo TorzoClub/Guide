@@ -9,10 +9,10 @@ const HorizontalSpan = ({
 }>) => (
   <span
     style={{
-      writingMode: 'horizontal-tb',
-      lineHeight: '1em',
-      height: '1em',
       ...style,
+      height: '1em',
+      lineHeight: '1em',
+      writingMode: 'horizontal-tb',
     }}
     {...reset}
   >
