@@ -1,9 +1,40 @@
+.InnerPage {
+  padding: calc((10px + 2vmax) * 1.5) calc((10px + 2vmax) * 1.5);
+  font-size: calc(10px + 2vmin);
+}
+
 p {
-  /* color: #464653DD; */
   color: hsl(201 7% 35% / .9);
   transition: margin 382ms;
-  line-height: 1.75em;
+  line-height: 1.618em;
   letter-spacing: 0.1em;
+  text-align: justify;
+}
+
+p.fist-letter::first-letter {
+  font-size: 2.25em;
+  /* color: grey; */
+  font-weight: bold;
+  float: left;
+  margin: 0 .2em 0 0;
+  line-height: 1em;
+}
+
+p ul {
+  padding: 0em 0;
+  list-style-type: none;
+}
+p ul li {
+  line-height: 1.618em;
+  border-left: solid 1px hsl(201 7% 35% / .2);
+  padding: calc(10px + 2vmin) .5em;
+}
+p ul li:last-child {
+  border-left: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: rgba(48, 103, 133, 1);
 }
 
 h1 .bg {

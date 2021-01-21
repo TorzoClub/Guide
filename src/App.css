@@ -15,7 +15,4 @@ html {
   min-width: 100vw;
 
   box-sizing: border-box;
-  padding: calc((10px + 2vmax) * 1.5) calc((10px + 2vmax) * 1.5);
-  color: rgba(48, 103, 133, 1);
-  font-size: calc(10px + 2vmin);
 }
