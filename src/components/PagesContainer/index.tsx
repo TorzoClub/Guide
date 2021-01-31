@@ -1,26 +1,27 @@
 import './index.css'
-import InnerPage from '../InnerPage'
+
 import useScreen from '../../utils/useScreen'
 import MobilePages from './MobilePages'
 import NormalPages from './NormalPages'
 
-import { ReactNode } from 'react'
-
-type InnerPageType = ReturnType<typeof InnerPage>
+import { useMemo } from 'react'
+import { PageProps } from '../Page'
 
 export default PageContainer
-function PageContainer({ pages }: { pages: InnerPageType[] }): JSX.Element {
+function PageContainer({ pages }: { pages: PageProps[] }) {
   const screen = useScreen()
 
-  let pagesNode: ReactNode = null
+  const pagesNode = useMemo(() => {
+    switch (screen) {
+      case 'mobile':
+        // 移动端的话
+        return <MobilePages pages={pages} />
 
-  if (screen === 'mobile') {
-    // 移动端的话
-    pagesNode = <MobilePages pages={pages} />
-  } else {
-    // 非移动端(大屏)
-    pagesNode = <NormalPages pages={pages} />
-  }
+      default:
+        // 非移动端(大屏)
+        return <NormalPages pages={pages} />
+    }
+  }, [pages, screen])
 
   return <div className="PageContainer">{pagesNode}</div>
 }

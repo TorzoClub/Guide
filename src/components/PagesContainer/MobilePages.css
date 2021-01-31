@@ -1,0 +1,52 @@
+
+.MobilePages {
+  padding: calc((10px + 2vmin) * 2);
+  padding-right: calc((10px + 2vmin) * 2.5);
+
+  font-size: calc(10px + 2vmin);
+}
+
+.PageTitle::first-letter {
+  /* font-size: 2.25em; */
+  /* color: grey; */
+  font-weight: bold;
+  float: left;
+  margin: 0 .2em 0 0;
+  line-height: 1em;
+
+  background-color: rgba(48, 103, 133, .9);
+  color: white;
+  padding: .5vmin;
+  border-radius: .5vmin;
+  text-shadow: 1px 0px 0px hsl(201 27% 35% / .9);
+  margin-bottom: .5vmin;
+}
+.PageTitle {
+  color: rgba(48, 103, 133, 1);
+  /* font-size: 2.25em; */
+}
+
+.SideBarRight {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+
+  width: calc((10px + 2vmin) * 2.5);
+
+  box-sizing: border-box;
+  padding: 20vh 0;
+  background-color: #CCC;
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+
+}
+.bottom-handler {
+  width: 100%;
+  line-height: calc((10px + 2vmin) * 2.5);
+  background-color: grey;
+  padding: 10px 0;
+}

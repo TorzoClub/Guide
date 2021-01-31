@@ -1,13 +1,10 @@
-.InnerPage {
-  padding: calc((10px + 2vmin) * 2);
-  font-size: calc(10px + 2vmin);
-}
-
 p {
   color: hsl(201 7% 35% / .9);
   line-height: 1.618em;
   letter-spacing: 0.1em;
   text-align: justify;
+
+  font-weight: 400;
 }
 
 p.fist-letter::first-letter {
@@ -74,4 +71,28 @@ figure > figcaption {
   color: #BBB;
   writing-mode: horizontal-tb;
   font-size: calc(10px + 1vmin);
+}
+
+ruby {}
+rb {
+
+}
+rt {
+  opacity: 0.5;
+  font-weight: 500;
+  
+}
+
+.jp p {
+  font-family: YuGo-Medium;
+  /* font-family: TsukuARdGothic-Regular; */
+  /* font-family: ToppanBunkyuGothicPr6N-Regular; */
+  
+  /* font-family: ToppanBunkyuMinchoPr6N-Regular; */
+}
+.jp h1 {
+  font-family: ToppanBunkyuMidashiMinchoStdN-ExtraBold;
+}
+.jp rt {
+  font-family: ToppanBunkyuMinchoPr6N-Regular;
 }

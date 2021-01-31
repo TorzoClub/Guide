@@ -1,14 +1,13 @@
-import InnerPage from '../InnerPage'
-type InnerPageType = ReturnType<typeof InnerPage>
+import { PageProps } from '../Page'
 
 export default Pages
-function Pages({ pages }: { pages: InnerPageType[] }): JSX.Element {
+function Pages({ pages }: { pages: PageProps[] }): JSX.Element {
   return (
     <div className="NormalPages">
-      {pages.map((innerPage, idx) => {
+      {pages.map(({ body }, idx) => {
         return (
           <div key={idx} className="Page">
-            {innerPage}
+            {body}
           </div>
         )
       })}
