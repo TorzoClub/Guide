@@ -1,16 +1,6 @@
-import { PageProps } from '../Page'
+import Page from '../Page'
 
 export default Pages
-function Pages({ pages }: { pages: PageProps[] }): JSX.Element {
-  return (
-    <div className="NormalPages">
-      {pages.map(({ body }, idx) => {
-        return (
-          <div key={idx} className="Page">
-            {body}
-          </div>
-        )
-      })}
-    </div>
-  )
+function Pages({ pageNodes }: { pageNodes: ReturnType<typeof Page>[] }) {
+  return <div className="NormalPages">{pageNodes}</div>
 }

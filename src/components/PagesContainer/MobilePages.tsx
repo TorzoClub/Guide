@@ -1,16 +1,22 @@
-import { Fragment, useState, useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 
 import './MobilePages.css'
 
-import { PageProps } from '../Page'
+import Page from '../Page'
+import { ContainerInfo } from './'
 
 export default Pages
-function Pages({ pages }: { pages: PageProps[] }) {
-  const [pageCode] = useState(0)
-
-  const curretPageRef = useRef<HTMLDivElement>(null)
+function Pages({
+  pageNodes,
+  containerInfo,
+}: {
+  pageNodes: ReturnType<typeof Page>[]
+  containerInfo: ContainerInfo
+}) {
+  const componentRef = useRef<HTMLDivElement>(null)
 
   const handlerRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     const el = handlerRef.current
     if (!el) {
@@ -38,18 +44,13 @@ function Pages({ pages }: { pages: PageProps[] }) {
     }
   }, [])
 
+  const title = containerInfo.pages[containerInfo.pageIndex]?.title
+
   return (
-    <div className="MobilePages">
-      {pages.map((page, idx) => {
-        return (
-          <Fragment key={idx}>
-            <h1 className="PageTitle">{page.title}</h1>
-            {page.body}
-          </Fragment>
-        )
-      })}
+    <div ref={componentRef} className="MobilePages">
+      {pageNodes}
       <div className="SideBarRight">
-        <div className="above">SideBarRight</div>
+        <div className="above">SideBarRight: {title}</div>
         <div ref={handlerRef} className="bottom-handler">
           handler
         </div>

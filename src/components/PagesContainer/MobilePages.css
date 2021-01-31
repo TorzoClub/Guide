@@ -1,9 +1,13 @@
 
 .MobilePages {
   padding: calc((10px + 2vmin) * 2);
-  padding-right: calc((10px + 2vmin) * 2.5);
+  padding-right: 0;
+  /* padding-right: calc((10px + 2vmin) * 2.5); */
 
   font-size: calc(10px + 2vmin);
+
+  /* 必写 */
+  position: relative;
 }
 
 .PageTitle::first-letter {
@@ -24,6 +28,7 @@
 .PageTitle {
   color: rgba(48, 103, 133, 1);
   /* font-size: 2.25em; */
+  margin: 0;
 }
 
 .SideBarRight {
