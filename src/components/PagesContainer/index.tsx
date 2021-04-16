@@ -48,8 +48,7 @@ function useOffsetList(pages: PageProps[]): [JSX.Element[], OffsetInfo[]] {
   return [pageNodes, offsetInfoList]
 }
 
-export default PageContainer
-function PageContainer({ pages }: { pages: PageProps[] }) {
+export default function PagesContainer({ pages }: { pages: PageProps[] }) {
   const screen = useScreen()
 
   const ContainerRef = useRef<HTMLDivElement>(null)

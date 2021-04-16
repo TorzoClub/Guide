@@ -1,0 +1,10 @@
+.NormalPages {
+  padding: calc((10px + 2vmin) * 2);
+  padding-right: 0;
+  /* padding-right: calc((10px + 2vmin) * 2.5); */
+
+  font-size: calc(10px + 2vmin);
+
+  /* 必写 */
+  position: relative;
+}
