@@ -7,19 +7,23 @@ import MobilePages from './MobilePages'
 import NormalPages from './NormalPages'
 
 import Page, { PageProps } from '../Page'
+import usePositionDetecting from './usePositionDetecting'
 
+// O_Info
 export type OffsetInfo = {
   inited: boolean
   offsetLeft: number
   offsetWidth: number
 }
+
+// C_Info
 export type ContainerInfo = {
   pageIndex: number
   pages: PageProps[]
   progress: number
 }
 
-function useOffsetList(pages: PageProps[]): [JSX.Element[], OffsetInfo[]] {
+function useOffsetList(pages: PageProps[]) {
   const [offsetInfoList, setOffsetInfoList] = useState<OffsetInfo[]>([])
 
   const pageNodes = useMemo(() => {
@@ -45,7 +49,7 @@ function useOffsetList(pages: PageProps[]): [JSX.Element[], OffsetInfo[]] {
     })
   }, [pages])
 
-  return [pageNodes, offsetInfoList]
+  return [pageNodes, offsetInfoList] as const
 }
 
 export default function PagesContainer({ pages }: { pages: PageProps[] }) {
@@ -61,33 +65,10 @@ export default function PagesContainer({ pages }: { pages: PageProps[] }) {
     progress: 0,
   })
 
-  useEffect(() => {
-    const scrollHandler = (e: HTMLElementEventMap['scroll']) => {
-      if (!document.scrollingElement) {
-        return
-      }
-
-      const { scrollLeft, scrollWidth } = document.scrollingElement
-
-      const scrollHorizontal = Math.abs(scrollLeft)
-
-      const offsetInfo = [...offsetInfoList]
-        .reverse()
-        .find(({ offsetLeft, offsetWidth }) => {
-          const a = scrollWidth - (offsetLeft + offsetWidth)
-          return scrollHorizontal > a
-        })
-
-      const pageIndex = offsetInfoList.indexOf(offsetInfo as OffsetInfo)
-      setContainerInfo((info) => ({ ...info, pageIndex }))
-      console.log('scroll')
-    }
-
-    window.addEventListener('scroll', scrollHandler)
-    return () => {
-      window.removeEventListener('scroll', scrollHandler)
-    }
-  }, [offsetInfoList])
+  usePositionDetecting({
+    offsetInfoList,
+    setContainerInfo,
+  })
 
   const screenNode = useMemo(() => {
     switch (screen) {
