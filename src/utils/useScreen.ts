@@ -10,12 +10,13 @@ const detectScreen = (): ScreenType => {
 }
 
 export default useScreen
-function useScreen() {
+function useScreen(onResizeHandler: () => void) {
   const [screen, setScreen] = useState<ScreenType>(detectScreen())
 
   const resizeHandler = useCallback(() => {
     setScreen(detectScreen())
-  }, [])
+    onResizeHandler()
+  }, [onResizeHandler])
 
   useEffect(() => {
     window.addEventListener('resize', resizeHandler)

@@ -11,7 +11,7 @@ export default function useOffsetDetecting({ pages }: { pages: PageProp[] }) {
     setOffsetInfoList,
   })
 
-  return [pagesNodes, offsetInfoList] as const
+  return [pagesNodes, offsetInfoList, useORL()] as const
 }
 
 const offsetDetectingCountState = atom({

@@ -12,7 +12,7 @@ export type ContainerInfo = {
   direction: 1 | -1
 }
 
-export default function usePositionDetect({
+export default function usePositionDetecting({
   offsetInfoList,
   setContainerInfo,
 }: {

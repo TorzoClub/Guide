@@ -22,11 +22,9 @@ export type OffsetInfo = {
 }
 
 export default function PagesContainer({ pages }: { pages: PageProp[] }) {
-  const screen = useScreen()
-
   const ContainerRef = useRef<HTMLDivElement>(null)
 
-  const [pageNodes, offsetInfoList] = useOffsetDetecting({ pages })
+  const [pageNodes, offsetInfoList, oRL] = useOffsetDetecting({ pages })
 
   const [containerInfo, setContainerInfo] = useState<ContainerInfo>({
     pageIndex: 0,
@@ -39,6 +37,8 @@ export default function PagesContainer({ pages }: { pages: PageProp[] }) {
     offsetInfoList,
     setContainerInfo,
   })
+
+  const screen = useScreen(oRL)
 
   const screenNode = useMemo(() => {
     switch (screen) {
