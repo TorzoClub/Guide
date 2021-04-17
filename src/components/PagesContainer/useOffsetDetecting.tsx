@@ -3,18 +3,31 @@ import { atom, useRecoilState, useRecoilValue } from 'recoil'
 import Page, { PageProp } from '../Page'
 import { OffsetInfo } from './index'
 
-const offsetDetectingSymbolState = atom({
-  key: 'offsetDetectingSymbolState',
+export default function useOffsetDetecting({ pages }: { pages: PageProp[] }) {
+  const [offsetInfoList, setOffsetInfoList] = useState<OffsetInfo[]>([])
+
+  const pagesNodes = useOffsetList({
+    pages,
+    setOffsetInfoList,
+  })
+
+  return [pagesNodes, offsetInfoList] as const
+}
+
+const offsetDetectingCountState = atom({
+  key: 'offsetDetectingCountState',
   default: 0,
 })
-Object.assign(window, { offsetDetectingSymbolState, useRecoilValue })
 
 export function useORL() {
   const [offsetDetectingSymbol, setOffsetDetectingSymbol] = useRecoilState(
-    offsetDetectingSymbolState
+    offsetDetectingCountState
   )
 
-  const oRL = () => setOffsetDetectingSymbol((symbol) => symbol + 1)
+  const oRL = useCallback(
+    () => setOffsetDetectingSymbol((count) => count + 1),
+    [setOffsetDetectingSymbol]
+  )
 
   return oRL
 }
@@ -26,7 +39,7 @@ function useOffsetList({
   pages: PageProp[]
   setOffsetInfoList: React.Dispatch<React.SetStateAction<OffsetInfo[]>>
 }) {
-  const [offsetDetectingSymbol] = useRecoilState(offsetDetectingSymbolState)
+  const [offsetDetectingCount] = useRecoilState(offsetDetectingCountState)
 
   const handleGetOffsetInfo = useCallback(
     (
@@ -39,28 +52,14 @@ function useOffsetList({
           inited: true,
           offsetLeft,
           offsetWidth,
-          detectingCount: offsetDetectingSymbol,
+          detectingCount: offsetDetectingCount,
         }
 
         return newOffsetInfoList
       })
     },
-    [offsetDetectingSymbol, setOffsetInfoList]
+    [offsetDetectingCount, setOffsetInfoList]
   )
-
-  const refreshOffsetInfoHandlers = useMemo(() => {
-    return pages.map((page, idx) => {
-      return ({
-        offsetLeft,
-        offsetWidth,
-      }: {
-        offsetLeft: number
-        offsetWidth: number
-      }) => {
-        handleGetOffsetInfo(idx, { offsetLeft, offsetWidth })
-      }
-    })
-  }, [handleGetOffsetInfo, pages])
 
   const pageNodes = useMemo(() => {
     return pages.map((page, idx) => {
@@ -68,22 +67,11 @@ function useOffsetList({
         <Page
           key={idx}
           {...page}
-          getOffsetInfo={refreshOffsetInfoHandlers[idx]}
+          getOffsetInfo={(s) => handleGetOffsetInfo(idx, s)}
         />
       )
     })
-  }, [pages, refreshOffsetInfoHandlers])
+  }, [handleGetOffsetInfo, pages])
 
   return pageNodes
-}
-
-export default function useOffsetDetecting({ pages }: { pages: PageProp[] }) {
-  const [offsetInfoList, setOffsetInfoList] = useState<OffsetInfo[]>([])
-
-  const pagesNodes = useOffsetList({
-    pages,
-    setOffsetInfoList,
-  })
-
-  return [pagesNodes, offsetInfoList] as const
 }
