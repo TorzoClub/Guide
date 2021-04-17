@@ -7,8 +7,10 @@ import MobilePages from './MobilePages'
 import NormalPages from './NormalPages'
 
 import Page, { PageProp } from '../Page'
-import usePositionDetecting from './usePositionDetecting'
+import usePositionDetecting, { ContainerInfo } from './usePositionDetecting'
 import useOffsetDetecting from './useOffsetDetecting'
+
+export type { ContainerInfo } from './usePositionDetecting'
 
 // O_Info
 export type OffsetInfo = {
@@ -17,13 +19,6 @@ export type OffsetInfo = {
   offsetWidth: number
 
   detectingCount: number
-}
-
-// C_Info
-export type ContainerInfo = {
-  pageIndex: number
-  pages: PageProp[]
-  progress: number
 }
 
 export default function PagesContainer({ pages }: { pages: PageProp[] }) {
@@ -37,6 +32,7 @@ export default function PagesContainer({ pages }: { pages: PageProp[] }) {
     pageIndex: 0,
     pages,
     progress: 0,
+    direction: 1,
   })
 
   usePositionDetecting({
