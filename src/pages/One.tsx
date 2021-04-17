@@ -1,10 +1,19 @@
 import HorizontalSpan from '../components/HorizontalSpan'
 import PageBody from '../components/PageBody'
+import { useORL } from 'src/components/PagesContainer/useOffsetDetecting'
+
 const TestPicture = 'https://pache.blog/test-picture.jpg'
 
 export default () => {
+  const oRL = useORL()
+
   return (
     <PageBody>
+      <figure>
+        <img alt="test picture" src={TestPicture} onLoad={oRL} />
+        <figcaption>测试图片</figcaption>
+      </figure>
+
       <p>
         同装会全称即为「共同装逼协会」。不难理解，这里便是个共同装逼的地方。
       </p>
@@ -88,11 +97,6 @@ export default () => {
         提出了「Ｔｏｒｚｏ」的概念。
         ……写了这么多废话，实际上就是个「同装」的译音而已。
       </p>
-
-      <figure>
-        <img alt="test picture" src={TestPicture} />
-        <figcaption>测试图片イオナサル</figcaption>
-      </figure>
 
       <div className="last">
         <div>TORZO Guide Book</div>

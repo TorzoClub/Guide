@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import PageBody from '../PageBody'
-export interface PageProps {
+export interface PageProp {
   title: string
   body: ReturnType<typeof PageBody>
 }
@@ -10,7 +10,7 @@ function Page({
   title,
   body,
   getOffsetInfo,
-}: PageProps & {
+}: PageProp & {
   getOffsetInfo: (s: { offsetLeft: number; offsetWidth: number }) => void
 }) {
   const pageRef = useRef<HTMLDivElement>(null)
@@ -18,14 +18,14 @@ function Page({
   useEffect(() => {
     if (!pageRef.current) {
       return
+    } else {
+      const el = pageRef.current
+
+      getOffsetInfo({
+        offsetLeft: el.offsetLeft,
+        offsetWidth: el.offsetWidth,
+      })
     }
-
-    const el = pageRef.current
-
-    getOffsetInfo({
-      offsetLeft: el.offsetLeft,
-      offsetWidth: el.offsetWidth,
-    })
   }, [getOffsetInfo])
 
   return (

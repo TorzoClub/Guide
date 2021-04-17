@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { PageProps } from '../Page'
 import { ContainerInfo, OffsetInfo } from './index'
 
 export default function usePositionDetect({

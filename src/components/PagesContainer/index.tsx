@@ -6,58 +6,32 @@ import useScreen from '../../utils/useScreen'
 import MobilePages from './MobilePages'
 import NormalPages from './NormalPages'
 
-import Page, { PageProps } from '../Page'
+import Page, { PageProp } from '../Page'
 import usePositionDetecting from './usePositionDetecting'
+import useOffsetDetecting from './useOffsetDetecting'
 
 // O_Info
 export type OffsetInfo = {
   inited: boolean
   offsetLeft: number
   offsetWidth: number
+
+  detectingCount: number
 }
 
 // C_Info
 export type ContainerInfo = {
   pageIndex: number
-  pages: PageProps[]
+  pages: PageProp[]
   progress: number
 }
 
-function useOffsetList(pages: PageProps[]) {
-  const [offsetInfoList, setOffsetInfoList] = useState<OffsetInfo[]>([])
-
-  const pageNodes = useMemo(() => {
-    return pages.map((page, idx) => {
-      return (
-        <Page
-          key={idx}
-          {...page}
-          getOffsetInfo={({ offsetLeft, offsetWidth }) => {
-            setOffsetInfoList((offsetInfoList) => {
-              const newOffsetInfoList = [...offsetInfoList]
-              newOffsetInfoList[idx] = {
-                inited: true,
-                offsetLeft,
-                offsetWidth,
-              }
-
-              return newOffsetInfoList
-            })
-          }}
-        />
-      )
-    })
-  }, [pages])
-
-  return [pageNodes, offsetInfoList] as const
-}
-
-export default function PagesContainer({ pages }: { pages: PageProps[] }) {
+export default function PagesContainer({ pages }: { pages: PageProp[] }) {
   const screen = useScreen()
 
   const ContainerRef = useRef<HTMLDivElement>(null)
 
-  const [pageNodes, offsetInfoList] = useOffsetList(pages)
+  const [pageNodes, offsetInfoList] = useOffsetDetecting({ pages })
 
   const [containerInfo, setContainerInfo] = useState<ContainerInfo>({
     pageIndex: 0,
