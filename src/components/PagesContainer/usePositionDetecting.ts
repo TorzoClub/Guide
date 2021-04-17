@@ -45,7 +45,7 @@ export default function usePositionDetecting({
         .reverse()
         .find(({ offsetLeft, offsetWidth }) => {
           const a = scrollWidth - (offsetLeft + offsetWidth)
-          return scrollHorizontal > a
+          return scrollHorizontal >= a
         })
 
       const pageIndex = offsetInfoList.indexOf(offsetInfo as OffsetInfo)
