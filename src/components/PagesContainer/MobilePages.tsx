@@ -4,6 +4,7 @@ import './MobilePages.css'
 
 import Page from '../Page'
 import { ContainerInfo } from './'
+import CurrentTitle from './components/CurrentTitle'
 
 export default Pages
 function Pages({
@@ -50,7 +51,7 @@ function Pages({
     <div ref={componentRef} className="MobilePages">
       {pageNodes}
       <div className="SideBarRight">
-        <div className="above">SideBarRight: {title}</div>
+        <CurrentTitle title={title} direction={containerInfo.direction} />
         <div ref={handlerRef} className="bottom-handler">
           handler
         </div>

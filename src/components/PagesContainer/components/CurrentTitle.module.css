@@ -1,0 +1,43 @@
+.CurrentTitle {
+  min-height: 150px;
+  width: 40px;
+  position: relative;
+  box-shadow: 0px 0px 1px;
+}
+
+@keyframes fadeInNext {
+  from {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInPrevius {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.Next {
+  animation: fadeInNext 618ms;
+}
+.Previus {
+  animation: fadeInPrevius 618ms;
+}
+.Layout {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30px;
+}

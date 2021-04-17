@@ -31,9 +31,9 @@ export default function usePositionDetecting({
 
       setLatestScroll((latestScrollLeft) => {
         if (latestScrollLeft < scrollLeft) {
-          setContainerInfo((info) => ({ ...info, direction: 1 }))
-        } else {
           setContainerInfo((info) => ({ ...info, direction: -1 }))
+        } else {
+          setContainerInfo((info) => ({ ...info, direction: 1 }))
         }
 
         return scrollLeft
