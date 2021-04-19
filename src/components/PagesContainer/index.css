@@ -1,6 +1,8 @@
+.PageContainer.mobile {
+  --body-fontsize: calc(10px + 2vmin);
+}
+
 .PageContainer {
-  /* width: 100vh;
-  height: 100vh;
-  overflow: hidden;
-  overflow-x: scroll; */
+  --body-fontsize: calc(10px + 2vmin);
+  --right-side-bar-width: calc(var(--body-fontsize) * 2.5);
 }

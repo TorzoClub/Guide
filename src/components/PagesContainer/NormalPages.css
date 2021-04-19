@@ -1,9 +1,8 @@
 .NormalPages {
-  padding: calc((10px + 2vmin) * 2);
+  padding: calc(var(--body-fontsize) * 2);
   padding-right: 0;
-  /* padding-right: calc((10px + 2vmin) * 2.5); */
 
-  font-size: calc(10px + 2vmin);
+  font-size: var(--body-fontsize);
 
   /* 必写 */
   position: relative;

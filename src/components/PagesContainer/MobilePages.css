@@ -1,10 +1,9 @@
 
 .MobilePages {
-  padding: calc((10px + 2vmin) * 2);
+  padding: calc(var(--body-fontsize) * 2);
   padding-right: 0;
-  /* padding-right: calc((10px + 2vmin) * 2.5); */
 
-  font-size: calc(10px + 2vmin);
+  font-size: var(--body-fontsize);
 
   /* 必写 */
   position: relative;
@@ -37,7 +36,7 @@
   top: 0;
   height: 100vh;
 
-  width: calc((10px + 2vmin) * 2.5);
+  width: var(--right-side-bar-width);
 
   box-sizing: border-box;
   padding: 20vh 0;
@@ -51,7 +50,7 @@
 }
 .bottom-handler {
   width: 100%;
-  line-height: calc((10px + 2vmin) * 2.5);
+  line-height: var(--right-side-bar-width);
   background-color: grey;
   padding: 10px 0;
 }

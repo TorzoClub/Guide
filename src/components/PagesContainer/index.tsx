@@ -6,7 +6,7 @@ import useScreen from '../../utils/useScreen'
 import MobilePages from './MobilePages'
 import NormalPages from './NormalPages'
 
-import Page, { PageProp } from '../Page'
+import { PageProp } from '../Page'
 import usePositionDetecting, { ContainerInfo } from './usePositionDetecting'
 import useOffsetDetecting from './useOffsetDetecting'
 
@@ -56,9 +56,9 @@ export default function PagesContainer({ pages }: { pages: PageProp[] }) {
 
   return useMemo(() => {
     return (
-      <div ref={ContainerRef} className="PageContainer">
+      <div ref={ContainerRef} className={`PageContainer ${screen}`}>
         {screenNode}
       </div>
     )
-  }, [screenNode])
+  }, [screen, screenNode])
 }
