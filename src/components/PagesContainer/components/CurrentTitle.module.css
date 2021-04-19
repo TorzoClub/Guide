@@ -2,7 +2,7 @@
   min-height: 150px;
   width: 40px;
   position: relative;
-  box-shadow: 0px 0px 1px;
+  /* box-shadow: 0px 0px 1px; */
 }
 
 @keyframes fadeInNext {
@@ -34,7 +34,9 @@
   animation: fadeInPrevius 618ms;
 }
 .Layout {
-  background-color: red;
+  background-color: #f4f7f8;
+  color: var(--torzo-blue);
+
   position: absolute;
   top: 0;
   left: 0;

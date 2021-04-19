@@ -1,5 +1,7 @@
 .PageContainer.mobile {
   --body-fontsize: calc(10px + 2vmin);
+
+  --torzo-blue: rgba(48, 103, 133, 1);
 }
 
 .PageContainer {
