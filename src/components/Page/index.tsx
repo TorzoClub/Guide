@@ -1,5 +1,8 @@
 import { useEffect, useRef } from 'react'
 import PageBody from '../PageBody'
+
+import s from './index.module.css'
+
 export interface PageProp {
   title: string
   body: ReturnType<typeof PageBody>
@@ -29,7 +32,7 @@ function Page({
   }, [getOffsetInfo])
 
   return (
-    <div ref={pageRef} className="Page">
+    <div ref={pageRef} className={s.Page}>
       <h1 className="PageTitle">{title}</h1>
       <div className="PageBody">{body}</div>
     </div>
